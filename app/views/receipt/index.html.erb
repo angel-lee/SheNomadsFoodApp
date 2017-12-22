@@ -1,6 +1,19 @@
 <h1>Receipt</h1>
-
-<div>Item: <%= @name %></div>
-<div>Price: $<%= @price %> </div>
-<div><%= link_to 'Confirm', confirmation_index_path %></div>
-<div><%= link_to 'Cancel', food_index_path %></div>
+<table> 
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    <% @foods.all.each do |food| %>
+        <tr>
+        <td><%= food.name %></td>
+        <td><%= food.price %></td>
+        <td><%= food.quantity %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<div>Subtotal <% %></div>
+<br>
+<%= link_to '<button type="button">Back</button>'.html_safe, food_index_path%>

@@ -1,5 +1,10 @@
 class FoodController < ApplicationController
   def index
-    @price = 10.00
+    @foods = Food.all
   end
+
+  def add
+    Food.increment_counter(:quantity, params[:id])
+  end
+  helper_method :add
 end

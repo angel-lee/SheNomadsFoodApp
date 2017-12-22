@@ -1,10 +1,9 @@
- Rails.application.routes.draw do
-  get 'confirmation/index'
+Rails.application.routes.draw do
   get 'receipt/index'
-  get 'checkout/index'
   get 'food/index'
 
   resources :foods
+  resources :receipt
 
-  root to: 'food#index'
+  root 'food#index'
 end

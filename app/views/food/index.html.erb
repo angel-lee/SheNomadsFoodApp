@@ -1,5 +1,18 @@
-<h1>Food</h1>
-<div><%= link_to 'Wine', checkout_index_path(:name => 'Wine', :price => @price) %></div>
-<div><%= link_to 'Chocolate', checkout_index_path(:name => 'Chocolate', :price => @price) %></div>
-<div><%= link_to 'Sushi', checkout_index_path(:name => 'Sushi', :price => @price) %></div>
-<div><%= link_to 'Avocado Toast', checkout_index_path(:name => 'Avocado Toast', :price => @price) %></div>
+<h1>Food Selection</h1>
+
+<table> 
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    <% @foods.all.each do |food| %>
+        <tr>
+            <td><%= link_to food.name, :onclick => add, :id => food.id%></td>
+            <td><%= food.price %></td>
+            <td><%= food.quantity %></td>
+        </tr>
+    <% end %>
+</table>
+<br>
+<%= link_to '<button type="button">Check Out</button>'.html_safe, receipt_index_path%>
